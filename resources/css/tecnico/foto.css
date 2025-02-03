@@ -1,0 +1,63 @@
+.drop-area {
+    border: 2px dashed #006BA6;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+    background-color: rgba(0, 0, 0, 0.05);
+    transition: border-color 0.3s ease;
+}
+
+.drop-area:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: gray;
+}
+
+.drop-area.drag-over {
+    border-color: #007bff;
+    background-color: #e9f5ff;
+}
+
+.preview {
+    width: 100%;
+    max-width: 100%;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #000;
+    border-radius: 8px;
+    display: none;
+}
+
+.input-container {
+    position: relative;
+}
+
+.remove-btn {
+    position: absolute;
+    right: -10px;
+    top: 5%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #888;
+}
+
+.remove-btn:hover {
+    color: red;
+}
+.btn-add {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.btn-add:hover {
+    color: var(--bs-green);
+}
+.btn-added {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: green;
+}
+.btn-added:hover {
+    color: var(--bs-green);
+}
