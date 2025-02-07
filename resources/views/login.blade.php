@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesion</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    @vite(['resources/css/login.css'])
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('css/login.css')}}">
 </head>
 <body id="body">
     <div class="LoginBackground d-flex align-items-center">
@@ -21,7 +22,7 @@
                                 <input type="text" id="email" name="email" class="form-control" value="{{old('email')}}" placeholder="Usuario" autofocus>
                                 <label for="email" class="text-dark">Usuario</label>
                                 @error('email')
-                                <span class="text-red">
+                                <span class="invalid-feedback d-block">
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
@@ -37,7 +38,7 @@
                                     <i id="password-icon" class="ri-eye-line"></i>
                                 </button>
                                 @error('password')
-                                <span class="text-red">
+                                <span class="invalid-feedback d-block">
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
@@ -58,8 +59,8 @@
         </div>
     </div>
 
-    @Vite([ 'resources/js/app.js'])
-    @Vite(['resources/js/contrasena.js'])
+    <script src="{{asset('js/app.js')}}"></script>
+    <script src="{{asset('js/contrasena.js')}}"></script>
 </body>
 
 </html>

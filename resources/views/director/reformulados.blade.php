@@ -5,7 +5,7 @@
         <div class="my-3 d-flex align-items-center justify-content-between">
             <h5 class="card-title font-weight-bold text-primary text-uppercase">Reformulados </h5>
         </div>
-        <div class="d-flex flex-wrap flex-lg-nowrap justify-content-center justify-content-md-between justify-content-lg-between gap-3">
+        <div class="d-flex flex-wrap flex-lg-nowrap justify-content-center justify-content-md-between justify-content-lg-between my-3">
             <div class="d-flex gap-2 justify-content-between justify-content-lg-start">
                 <form id="perPageForm">
                     <select name="perPage" id="perPage" class="form-select">
@@ -61,7 +61,9 @@
 </x-modal-registar>
 
 @endsection
-@vite(['resources/js/director/reformulado.js'])
-@vite(['resources/js/director/editar_reformulado.js'])
-@vite(['resources/js/director/actualizar_reformulado.js'])
-@vite(['resources/js/director/buscar_reformulados.js'])
+@section('scripts')
+<script src="{{asset('js/director/reformulado.js')}}"></script>
+<script src="{{asset('js/director/editar_reformulado.js')}}"></script>
+<script src="{{asset('js/director/actualizar_reformulado.js')}}"></script>
+<script src="{{asset('js/director/buscar_reformulados.js')}}"></script>
+@endsection

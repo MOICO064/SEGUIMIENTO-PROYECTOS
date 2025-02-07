@@ -90,5 +90,5 @@
     });;
 </script>
 @endif
+<script src="{{asset('js/contrasena.js')}}"></script>
 @endsection
-@Vite([ 'resources/js/contrasena.js'])

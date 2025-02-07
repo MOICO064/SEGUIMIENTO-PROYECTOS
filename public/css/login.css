@@ -1,0 +1,20 @@
+@import "node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+
+#body {
+    background-image: url('../imagenes/fondo.jpg');
+    background-size: cover;
+    background-position: center;
+
+}
+
+.LoginBackground {
+    height: 100vh;
+    background: rgb(0, 0, 0, 0.3);
+}
+
+
+.form {
+    background: rgb(0, 0, 0, 0.5);
+    border-radius: 5%;
+}

@@ -8,6 +8,7 @@ use App\Models\acta;
 use App\Models\agenda;
 use App\Models\compromisos;
 use App\Models\asistentes;
+
 class SupervisorController extends Controller
 {
     public function Otbs($distrito)
@@ -98,14 +99,14 @@ class SupervisorController extends Controller
     public function ActualizarActa($id, Request $request)
     {
         $data = $request->only(['fecha', 'lugar', 'hora', 'notas', 'otb']);
-        $acta = Acta::findOrFail($id);
+        $acta = acta::findOrFail($id);
         $acta->update($data);
 
         if ($request->has('agendas')) {
             $agendas = json_decode($request->agendas, true);
             foreach ($agendas as $agendaData) {
                 if (isset($agendaData['id'])) {
-                    Agenda::where('id', $agendaData['id'])->update(['descripcion' => $agendaData['descripcion']]);
+                    agenda::where('id', $agendaData['id'])->update(['descripcion' => $agendaData['descripcion']]);
                 } else {
                     $acta->agendas()->create(['descripcion' => $agendaData['descripcion']]);
                 }
@@ -116,7 +117,7 @@ class SupervisorController extends Controller
             $compromisos = json_decode($request->compromisos, true);
             foreach ($compromisos as $compromisoData) {
                 if (isset($compromisoData['id'])) {
-                    Compromisos::where('id', $compromisoData['id'])->update([
+                    compromisos::where('id', $compromisoData['id'])->update([
                         'compromiso' => $compromisoData['compromiso'],
                         'responsable' => $compromisoData['responsable'],
                         'fecha_estimada' => $compromisoData['fecha'],
@@ -132,13 +133,13 @@ class SupervisorController extends Controller
             $asistentes = json_decode($request->asistentes, true);
             foreach ($asistentes as $asistenteData) {
                 if (isset($asistenteData['id'])) {
-                    Asistentes::where('id', $asistenteData['id'])->update(['asistente' => $asistenteData['asistente']]);
+                    asistentes::where('id', $asistenteData['id'])->update(['asistente' => $asistenteData['asistente']]);
                 } else {
                     $acta->asistentes()->create(['asistente' => $asistenteData['asistente']]);
                 }
             }
         }
 
-        return response()->json(['message' => 'Acta actualizada correctamente'], 200);
+        return response()->json(['message' => 'Acta actualizada correctamente', 'redirect' => url('/actas/' . $request['otb'])], 200);
     }
 }

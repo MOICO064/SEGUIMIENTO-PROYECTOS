@@ -62,7 +62,9 @@
         element.style.height = (element.scrollHeight) + "px";
     }
 </script>
+@section('scripts')
+<script src="{{asset('js/tecnico/porcentaje.js')}}"></script>
+<script src="{{asset('js/tecnico/planillas.js')}}"></script>
+<script src="{{asset('js/tecnico/avance.js')}}"></script>
 @endsection
-@vite(['resources/js/tecnico/porcentaje.js'])
-@vite(['resources/js/tecnico/avance.js'])
-@vite(['resources/js/tecnico/planillas.js'])
+

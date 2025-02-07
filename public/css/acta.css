@@ -1,0 +1,70 @@
+.logo-acta {
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.margen-up {
+    border-top: 2px solid orange;
+}
+
+.margen-botton {
+    border-bottom: 5px solid orange;
+}
+
+.input-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.planilla-input {
+    padding-right: 2rem;
+}
+
+.remove-btn {
+    position: absolute;
+    top: 5%;
+    right: -5px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: gray;
+    font-size: 1.2rem;
+    transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+.remove-btn:hover {
+    color: red;
+    font-size: 1.4rem;
+}
+
+#addInputBtn {
+    cursor: pointer;
+    color: gray;
+    font-size: 1.4rem;
+    transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+#addInputBtn:hover {
+    color: green;
+    font-size: 1.5rem;
+}
+#addAsistente{
+    cursor: pointer;
+    color: gray;
+    font-size: 1.4rem;
+    transition: color 0.3s ease, font-size 0.3s ease;
+}
+#addAsistente:hover {
+    color: green;
+    font-size: 1.5rem;
+}
+#addCompromiso{
+    cursor: pointer;
+    color: gray;
+    font-size: 1.4rem;
+    transition: color 0.3s ease, font-size 0.3s ease;
+}
+#addCompromiso:hover {
+    color: green;
+    font-size: 1.5rem;
+}

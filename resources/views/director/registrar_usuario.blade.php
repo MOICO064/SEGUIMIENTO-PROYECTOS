@@ -104,4 +104,3 @@
 </script>
 @endif
 @endsection
-@Vite([ 'resources/js/contrasena.js'])

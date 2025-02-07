@@ -51,7 +51,7 @@
             </select>
             <label for="otb">OTB</label>
         </div>
-        <div cols="form-floating my-3">
+        <div class="form-floating my-3">
             <input type="date" name="fecha_inicio" id="fecha_inicio" class="form-control" required>
             <label for="fecha_inicio">Fecha Inicio</label>
         </div>
@@ -66,5 +66,7 @@
     </form>
 </x-modal-registar>
 @endsection
-@vite(['resources/js/supervisor/cargar_otb.js'])
-@vite(['resources/js/supervisor/proyectos.js'])
+@section('scripts')
+<script src="{{asset('js/supervisor/cargar_otb.js')}}"></script>
+<script src="{{asset('js/supervisor/proyectos.js')}}"></script>
+@endsection

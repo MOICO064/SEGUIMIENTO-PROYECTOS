@@ -6,13 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    
+
     <!-- Vincular CSS -->
-    @vite(['resources/css/app.css'])
-    @vite(['resources/css/acta.css'])
-    @vite(['resources/css/home.css'])
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('css/acta.css')}}">
+    <link rel="stylesheet" href="{{asset('css/home.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.css">
+
     <title>Seguimiento de Proyectos</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 
 <body>
@@ -23,16 +27,16 @@
         </div>
         <ul class="sidebar-menu p-3 m-0 mb-0">
             <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Pagina Principal</li>
-            <li class="sidebar-menu-item ">
+            <li class="sidebar-menu-item {{Request::is('home')?'active':''}}">
                 <a href="{{route('home')}}">
                     <i class="ri-dashboard-line sidebar-menu-item-icon"></i>
                     Home
                 </a>
             </li>
-        @if(auth()->user()->role==='Supervisor' || auth()->user()->role==='Director')
+            @if(auth()->user()->role==='Supervisor' || auth()->user()->role==='Director')
             <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Distritos</li>
             <li class="sidebar-menu-item has-dropdown ">
-                <a href="">
+                <a href="" class="active">
                     <i class="ri-road-map-line sidebar-menu-item-icon "></i>
                     Distrito A
                     <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
@@ -150,7 +154,7 @@
                     Educación
                 </a>
             </li>
-            
+
             @endif
             @if(auth()->user()->role==='Tecnico')
             <!--Tecnico -->
@@ -238,7 +242,6 @@
                 <div class="dropdown p-2">
                     <div class="d-flex align-items-center cursor-pointer dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         <span class="me-2 d-none d-sm-block text-indigo">{{auth()->user()->role }}</span>
-                        <i class="ri-arrow-down-s-fill"></i>
                     </div>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                         <li>
@@ -260,8 +263,13 @@
             </div>
         </div>
     </main>
-    @yield('scripts')
-    @Vite([ 'resources/js/app.js'])
+    @yield('scripts')    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.all.min.js"></script>
+
+    <script src="{{asset('js/app.js')}}"></script>
+
 
 </body>
 

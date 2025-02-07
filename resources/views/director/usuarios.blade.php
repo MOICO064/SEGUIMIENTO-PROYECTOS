@@ -6,7 +6,7 @@
             <h5 class="card-title font-weight-bold text-primary "> USUARIOS {{$estado}}</h5>
 
         </div>
-        <div class="d-flex flex-wrap flex-lg-nowrap justify-content-center justify-content-md-between justify-content-lg-between gap-3">
+        <div class="d-flex flex-wrap flex-lg-nowrap justify-content-center justify-content-md-between justify-content-lg-between my-3">
             <div class="d-flex gap-2 justify-content-between justify-content-lg-start">
                 <form id="perPageForm">
                     <select name="perPage" id="perPage" class="form-select">
@@ -55,12 +55,12 @@
     });;
 </script>
 @endif
-@endsection
 @if ($estado === 'ACTIVOS')
 
-@vite(['resources/js/director/buscar_usuarios.js'])
+<script src="{{asset('js/director/buscar_usuarios.js')}}"></script>
 @endif
 @if ($estado === 'INACTIVOS')
-@vite(['resources/js/director/inactivos.js'])
+<script srv="{{asset('js/director/inactivos.js')}}"> </script>
 @endif
-@vite(['resources/js/director/usuario.js'])
+<script src="{{asset('js/director/usuario.js')}}"></script>
+@endsection

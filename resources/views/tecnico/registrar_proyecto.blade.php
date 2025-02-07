@@ -102,10 +102,11 @@
     </form>
 </div>
 @endsection
-
-@vite(['resources/js/tecnico/porcentaje.js'])
-@vite(['resources/js/tecnico/cargar_aperturas.js'])
-@vite(['resources/js/tecnico/cargar_distritos.js'])
-@vite(['resources/js/tecnico/cargar_otbs.js'])
-@vite(['resources/js/tecnico/planillas.js'])
-@vite(['resources/js/tecnico/proyecto.js'])
+@section('scripts')
+<script src="{{asset('js/tecnico/porcentaje.js')}}"></script>
+<script src="{{asset('js/tecnico/cargar_aperturas.js')}}"></script>
+<script src="{{asset('js/tecnico/cargar_distritos.js')}}"></script>
+<script src="{{asset('js/tecnico/cargar_otbs.js')}}"></script>
+<script src="{{asset('js/tecnico/planillas.js')}}"></script>
+<script src="{{asset('js/tecnico/proyecto.js')}}"></script>
+@endsection

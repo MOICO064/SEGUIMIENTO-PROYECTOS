@@ -41,5 +41,7 @@
     </div>
 </div>
 @endsection
-@vite(['resources/js/tecnico/buscador.js'])
-@vite(['resources/js/tecnico/reporte.js'])
+@section('scripts')
+<script src="{{asset('js/tecnico/buscador.js')}}"></script>
+<script src="{{asset('js/tecnico/reporte.js')}}"></script>
+@endsection

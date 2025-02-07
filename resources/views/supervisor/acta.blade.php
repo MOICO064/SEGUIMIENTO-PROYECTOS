@@ -92,8 +92,10 @@
     </form>
 </div>
 @endsection
-@vite(['resources/js/supervisor/agenda.js'])
-@vite(['resources/js/supervisor/compromiso.js'])
-@vite(['resources/js/supervisor/asistentes.js'])
-@vite(['resources/js/supervisor/cargar_otb.js'])
-@vite(['resources/js/supervisor/acta.js'])
+@section('scripts')
+<script src="{{asset('js/supervisor/agenda.js')}}"></script>
+<script src="{{asset('js/supervisor/compromiso.js')}}"></script>
+<script src="{{asset('js/supervisor/asistentes.js')}}"></script>
+<script src="{{asset('js/supervisor/cargar_otb.js')}}"></script>
+<script src="{{asset('js/supervisor/acta.js')}}"></script>
+@endsection
