@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class avance extends Model
+class Avance extends Model
 {
     use HasFactory;
     protected $table = 'avance';

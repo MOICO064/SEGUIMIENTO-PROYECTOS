@@ -1,6 +1,3 @@
-import $ from 'jquery';
-import Swal from 'sweetalert2';
-
 $(document).ready(function () {
     $('#actualizar-avance input[required], #registra-avance textarea[required]').on('input change', function () {
         let fieldId = $(this).attr('id');

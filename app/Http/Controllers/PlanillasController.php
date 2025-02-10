@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\planilla;
+use App\Models\Planilla;
 class PlanillasController extends Controller
 {
     public function AgregarPlanilla($data) {
-        return planilla::create($data);
+        return Planilla::create($data);
     }
 }

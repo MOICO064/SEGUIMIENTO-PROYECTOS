@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\ActasController;
-use App\Models\acta;
-use App\Models\agenda;
-use App\Models\compromisos;
-use App\Models\asistentes;
+use App\Models\Acta;
+use App\Models\Agenda;
+use App\Models\Compromisos;
+use App\Models\Asistentes;
 
 class SupervisorController extends Controller
 {
@@ -99,14 +99,14 @@ class SupervisorController extends Controller
     public function ActualizarActa($id, Request $request)
     {
         $data = $request->only(['fecha', 'lugar', 'hora', 'notas', 'otb']);
-        $acta = acta::findOrFail($id);
+        $acta = Acta::findOrFail($id);
         $acta->update($data);
 
         if ($request->has('agendas')) {
             $agendas = json_decode($request->agendas, true);
             foreach ($agendas as $agendaData) {
                 if (isset($agendaData['id'])) {
-                    agenda::where('id', $agendaData['id'])->update(['descripcion' => $agendaData['descripcion']]);
+                    Agenda::where('id', $agendaData['id'])->update(['descripcion' => $agendaData['descripcion']]);
                 } else {
                     $acta->agendas()->create(['descripcion' => $agendaData['descripcion']]);
                 }
@@ -117,7 +117,7 @@ class SupervisorController extends Controller
             $compromisos = json_decode($request->compromisos, true);
             foreach ($compromisos as $compromisoData) {
                 if (isset($compromisoData['id'])) {
-                    compromisos::where('id', $compromisoData['id'])->update([
+                    Compromisos::where('id', $compromisoData['id'])->update([
                         'compromiso' => $compromisoData['compromiso'],
                         'responsable' => $compromisoData['responsable'],
                         'fecha_estimada' => $compromisoData['fecha'],
@@ -133,7 +133,7 @@ class SupervisorController extends Controller
             $asistentes = json_decode($request->asistentes, true);
             foreach ($asistentes as $asistenteData) {
                 if (isset($asistenteData['id'])) {
-                    asistentes::where('id', $asistenteData['id'])->update(['asistente' => $asistenteData['asistente']]);
+                    Asistentes::where('id', $asistenteData['id'])->update(['asistente' => $asistenteData['asistente']]);
                 } else {
                     $acta->asistentes()->create(['asistente' => $asistenteData['asistente']]);
                 }

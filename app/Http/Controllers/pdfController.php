@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
-use App\Models\proyecto;
-use App\Models\avance;
+use App\Models\Proyecto;
+use App\Models\Avance;
 
-class pdfController extends Controller
+class PdfController extends Controller
 {
     public function ActaPdf($id)
     {
@@ -122,19 +122,19 @@ class pdfController extends Controller
     }
     public function ReportesAvances($id)
     {
-        $avances = avance::where('proyecto_id', $id)
+        $avances = Avance::where('proyecto_id', $id)
             ->orderBy('fecha', 'asc')
             ->get();
-        $proyecto = proyecto::find($id);
+        $proyecto = Proyecto::find($id);
         $presupuestoTotal = $avances->sum('monto_certificado');
         return view('pdf.tecnico.avances_vista_previa', compact('avances', 'proyecto', 'presupuestoTotal'));
     }
     public function DescargarAvances($id)
     {
-        $avances = avance::where('proyecto_id', $id)
+        $avances = Avance::where('proyecto_id', $id)
             ->orderBy('fecha', 'asc')
             ->get();
-        $proyecto = proyecto::find($id);
+        $proyecto = Proyecto::find($id);
         $presupuestoTotal = $avances->sum('monto_certificado');
         $pdf = PDF::loadView('pdf.tecnico.avances', compact('avances', 'proyecto', 'presupuestoTotal'));
         return $pdf->download('Avances-del-proyecto-'.$proyecto->nombre.'-a-cargo-de-' . auth()->user()->name . '.pdf');

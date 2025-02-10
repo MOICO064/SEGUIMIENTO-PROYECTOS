@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
         else if (distritoId === 'B') otbsToLoad = OTBsB;
         else if (distritoId === 'C') otbsToLoad = OTBsC;
         else if (distritoId === 'D') otbsToLoad = OTBsD;
+        else if (distritoId === 'E') otbsToLoad = OTBsE;
         else if (distritoId === 'Alumbrado' || distritoId === 'Educacion' || distritoId === 'Salud') otbsToLoad = allOTBs;
 
         populateSelect(otbSelect, otbsToLoad);

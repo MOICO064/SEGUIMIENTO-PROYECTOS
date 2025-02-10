@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\proyecto;
-use App\Models\planilla;
+use App\Models\Proyecto;
+use App\Models\Planilla;
 use Illuminate\Http\Request;
 
 class ProyectoController extends Controller
@@ -41,7 +41,7 @@ class ProyectoController extends Controller
     }
     public function Proyecto($id)
     {
-        return proyecto::find($id);
+        return Proyecto::find($id);
     }
     public function TecnicoProyectos($id, Request $request)
     {
@@ -74,8 +74,8 @@ class ProyectoController extends Controller
 
     public function EditarProyecto($id)
     {
-        $proyecto = proyecto::find($id);
-        $planillas = planilla::where('proyecto_id', $id)->get();
+        $proyecto = Proyecto::find($id);
+        $planillas = Planilla::where('proyecto_id', $id)->get();
         return view('tecnico.editar_proyectos', compact('proyecto', 'planillas'));
     }
     public function ActualizarProyecto($id, Request $request)
@@ -102,12 +102,12 @@ class ProyectoController extends Controller
             if (is_array($plantillas)) {
                 foreach ($plantillas as $plantillaData) {
                     if (isset($plantillaData['id'])) {
-                        $plantilla = planilla::find($plantillaData['id']);
+                        $plantilla = Planilla::find($plantillaData['id']);
                         if ($plantilla) {
                             $plantilla->update(['nombre' => $plantillaData['nombre']]);
                         }
                     } else {
-                        planilla::create([
+                        Planilla::create([
                             'proyecto_id' => $proyecto->id,
                             'nombre' => $plantillaData['nombre'],
                         ]);
@@ -127,6 +127,6 @@ class ProyectoController extends Controller
     }
     public function AgregarProyecto($data)
     {
-        return proyecto::create($data);
+        return Proyecto::create($data);
     }
 }

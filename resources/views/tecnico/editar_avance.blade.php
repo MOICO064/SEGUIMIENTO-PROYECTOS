@@ -44,6 +44,7 @@
     </form>
 </div>
 @endsection
-
-@vite(['resources/js/tecnico/porcentaje.js'])
-@vite(['resources/js/tecnico/actualizar_avance.js'])
+@section('scripts')
+<script src="{{asset('js/tecnico/actualizar_avance.js')}}"></script>
+<script src="{{asset('js/tecnico/porcentaje.js')}}"></script>
+@endsection

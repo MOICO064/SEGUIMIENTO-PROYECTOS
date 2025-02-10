@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\proyecto;
+use App\Models\Proyecto;
 
 
 class HomeController extends Controller
 {
-    public function home()
+    public function Home()
     {
-        $proyectos = proyecto::all();
+        $proyectos = Proyecto::all();
         $TotalProyectos = $proyectos->count();
         $GastoTotal=$proyectos->sum('presupuesto');
         $proyectosCompletados = $proyectos->where('porcentaje_avance', 100)->count();

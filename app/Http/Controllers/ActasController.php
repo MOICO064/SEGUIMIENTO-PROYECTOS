@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\acta;
+use App\Models\Acta;
 
 class ActasController extends Controller
 {
     public function AgregarActa($data)
     {
-        return acta::create($data);
+        return Acta::create($data);
     }
     public function Acta($id)
     {
@@ -17,7 +17,7 @@ class ActasController extends Controller
             ->with(['agendas', 'compromisos', 'asistentes'])
             ->first();
     }
-    public function actas($id)
+    public function Actas($id)
     {
         return Acta::where('otb', $id)
             ->with(['agendas', 'compromisos', 'asistentes'])

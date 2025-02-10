@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AperturaProgramaticaController;
-use App\Models\reformulado;
+use App\Models\Reformulado;
 
 class DirectorController extends Controller
 {
@@ -15,7 +15,7 @@ class DirectorController extends Controller
         $perPage = in_array($perPage, [10, 25, 50, 100]) ? $perPage : 10;
         $searchTerm = $request->get('search', '');
 
-        $reformulados = reformulado::where(function ($query) use ($searchTerm) {
+        $reformulados = Reformulado::where(function ($query) use ($searchTerm) {
             $query->where('fecha_aprobacion', 'like', "%$searchTerm%")
                 ->orWhere('fecha_inicio', 'like', "%$searchTerm%")
                 ->orWhere('ley_resolucion', 'like', "%$searchTerm%");
@@ -34,7 +34,7 @@ class DirectorController extends Controller
     {
         try {
             $data = $request->only(['fecha_aprobacion', 'fecha_inicio', 'ley_resolucion']);
-            reformulado::create($data);
+            Reformulado::create($data);
             return response()->json([
                 'message' => 'Reformulado agregado correctamente.',
             ]);
@@ -55,7 +55,7 @@ class DirectorController extends Controller
     public function ActualizarReformulario($id, request $request)
     {
         try {
-            $reformulado = reformulado::findOrFail($id);
+            $reformulado = Reformulado::findOrFail($id);
             if (!$reformulado) {
                 return response()->json(['error' => 'Reformulado no encontrado'], 404);
             }

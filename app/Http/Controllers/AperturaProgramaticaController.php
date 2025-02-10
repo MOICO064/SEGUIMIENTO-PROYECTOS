@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\apertura_programatica;
+use App\Models\Apertura_programatica;
 
 class AperturaProgramaticaController extends Controller
 {
-    public function getAperturas()
+    public function GetAperturas()
     {
-        $distritos = apertura_programatica::all();
+        $distritos = Apertura_programatica::all();
         return response()->json([
             'success' => true,
             'data' => $distritos
@@ -21,7 +21,7 @@ class AperturaProgramaticaController extends Controller
         $perPage = in_array($perPage, [10, 25, 50, 100]) ? $perPage : 10;
         $searchTerm = $request->get('search', '');
 
-        $aperturas = apertura_programatica::where(function ($query) use ($searchTerm) {
+        $aperturas = Apertura_programatica::where(function ($query) use ($searchTerm) {
             $query->where('codigo', 'like', "%$searchTerm%")
                 ->orWhere('nombre', 'like', "%$searchTerm%")
                 ->orWhere('presupuesto', 'like', "%$searchTerm%");
@@ -38,11 +38,11 @@ class AperturaProgramaticaController extends Controller
     }
     public function AgregarApertura($data)
     {
-        return apertura_programatica::create($data);
+        return Apertura_programatica::create($data);
     }
     public function EditarApertura($id)
     {
-        $apertura = apertura_programatica::find($id);
+        $apertura = Apertura_programatica::find($id);
 
         if (!$apertura) {
             return response()->json(['error' => 'Reformulado no encontrado'], 404);
@@ -53,7 +53,7 @@ class AperturaProgramaticaController extends Controller
     public function ActualizarApertura($id, request $request)
     {
         try {
-            $apertura = apertura_programatica::findOrFail($id);
+            $apertura = Apertura_programatica::findOrFail($id);
             if (!$apertura) {
                 return response()->json(['error' => 'Apertura no encontrada'], 404);
             }
